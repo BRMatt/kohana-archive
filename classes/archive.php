@@ -7,7 +7,7 @@
  * @package    Archive
  * @author     Kohana Team
  * @copyright  (c) 2007-2008 Kohana Team
- * @license    http://kohanaphp.com/license.html
+ * @license    http://kohanaphp.com/license
  */
 Abstract Class Archive 
 {
@@ -97,15 +97,15 @@ Abstract Class Archive
 		$directory = pathinfo($filename, PATHINFO_DIRNAME);
 
 		if ( ! is_writable($directory))
-			throw new Kohana_Exception('archive.directory_unwritable', 
-				array($directory));
+			throw new Kohana_Exception(':directory not writable', 
+				array(':directory' => $directory));
 
 		if (is_file($filename))
 		{
 			// Unable to write to the file
 			if ( ! is_writable($filename))
-				throw new Kohana_Exception('archive.filename_conflict', 
-					array($filename));
+				throw new Kohana_Exception(':filename filename conflict', 
+					array(':filename' => $filename));
 
 			// Remove the file
 			unlink($filename);
