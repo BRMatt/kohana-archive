@@ -97,13 +97,15 @@ Abstract Class Archive
 		$directory = pathinfo($filename, PATHINFO_DIRNAME);
 
 		if ( ! is_writable($directory))
-			throw new Kohana_Exception('archive.directory_unwritable', $directory);
+			throw new Kohana_Exception('archive.directory_unwritable', 
+				array($directory));
 
 		if (is_file($filename))
 		{
 			// Unable to write to the file
 			if ( ! is_writable($filename))
-				throw new Kohana_Exception('archive.filename_conflict', $filename);
+				throw new Kohana_Exception('archive.filename_conflict', 
+					array($filename));
 
 			// Remove the file
 			unlink($filename);
