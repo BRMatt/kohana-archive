@@ -9,7 +9,7 @@
  * @copyright  (c) 2007-2008 Kohana Team
  * @license    http://kohanaphp.com/license.html
  */
-class Archive_Bzip_Driver extends Archive {
+class Archive_Bzip extends Archive {
 
 	public function create($paths, $filename = FALSE)
 	{
