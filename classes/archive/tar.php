@@ -9,7 +9,7 @@
  * @copyright  (c) 2007-2008 Kohana Team
  * @license    http://kohanaphp.com/license.html
  */
-class Archive_Tar_Driver extends Archive {
+class Archive_Tar extends Archive {
 
 	// Compiled archive data
 	protected $data = '';
