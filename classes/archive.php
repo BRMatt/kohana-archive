@@ -123,13 +123,15 @@ Abstract Class Archive
 
 	/**
 	 * Forces a download of a created archive.
+	 * File will be written to disk before being downloaded so path must be absolute
 	 *
 	 * @param   string   name of the file that will be downloaded
 	 * @return  void
 	 */
 	public function download($filename)
 	{
-		download::force($filename, $this->create($this->paths));
+		$this->create($this->paths, $filename);
+		Request::instance()->send_file($filename);
 	}
 
 } // End Archive
